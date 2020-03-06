@@ -1,11 +1,11 @@
-extends MapAction
+extends Node
 class_name DialogueAction
 
-export (String, FILE, *.json) var dialogue_file_path : String
+export (String, FILE, "*.json") var dialogue_file_path : String
 
 func interact() -> void:
 	var dialogue : Dictionary = load_dialogue(dialogue_file_path)
-	yield(LocalMap.play_dialogue(dialogue), "completed")
+	yield(Node.play_dialogue(dialogue), "completed")
 	emit_signal("finished")
 	
 func load_dialogue(file_path) -> Dictionary:
@@ -16,4 +16,3 @@ func load_dialogue(file_path) -> Dictionary:
 	var dialogue = parse_json(file.get_as_text())
 	assert dialogue.size() > 0
 	return dialogue
-	
