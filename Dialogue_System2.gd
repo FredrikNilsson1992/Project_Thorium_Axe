@@ -1,13 +1,23 @@
 extends Node
+
+
 class_name DialogueAction
 
+
+onready var text_print = get_node("LocalMap/MapAction/DialogueAction/RichTextLabel")
+
+
 export (String, FILE, "*.json") var dialogue_file_path : String
+
 
 func interact() -> void:
 	var dialogue : Dictionary = load_dialogue(dialogue_file_path)
 	yield(Node.play_dialogue(dialogue), "completed")
 	emit_signal("finished")
-	
+	text_print.text(dialogue[001]["text"])
+
+
+
 func load_dialogue(file_path) -> Dictionary:
 	var file = File.new()
 	assert file.file_exists(file_path)

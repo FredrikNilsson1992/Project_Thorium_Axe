@@ -15,15 +15,15 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.4631, 31.4542 )
 
-[sub_resource type="RectangleShape2D" id=6]
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32.0328, 31.881 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32.0328, 31.881 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32.0328, 31.881 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32.0252, 31.7623 )
 
 [node name="World" type="Node"]
@@ -67,12 +67,15 @@ script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="LocalMap/MapAction/DialogueAction"]
 position = Vector2( 421.216, 226.692 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/MapAction/DialogueAction/Area2D"]
-shape = SubResource( 6 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LocalMap/MapAction/DialogueAction"]
+margin_left = 374.0
+margin_top = 165.0
+margin_right = 629.0
+margin_bottom = 234.0
 
 [node name="NPC" type="Node" parent="LocalMap/MapAction"]
 
@@ -101,7 +104,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 2 )
 
 [node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="StaticBody2D" parent="LocalMap/Walls"]
 position = Vector2( 406, 286 )
@@ -115,7 +118,7 @@ texture = ExtResource( 2 )
 
 [node name="Wall Collision3" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
 position = Vector2( -0.0769958, 3.05176e-05 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D3" type="StaticBody2D" parent="LocalMap/Walls"]
 position = Vector2( 534, 286 )
@@ -128,5 +131,5 @@ texture = ExtResource( 2 )
 
 [node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D3"]
 position = Vector2( -0.0386353, -0.111877 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]

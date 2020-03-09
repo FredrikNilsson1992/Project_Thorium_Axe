@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 const UP = Vector2(0, -1)
 const SLOPE_STOP = 64
 
@@ -30,6 +31,7 @@ func _get_input():
 	velocity.x = lerp(velocity.x, Move_Speed * move_direction, _get_h_weight())
 	if move_direction != 0:
 		$Body.scale.x = move_direction
+		
 		
 func _get_h_weight():
 	return 0.2 if is_grounded else 0.1
