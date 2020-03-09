@@ -30,7 +30,11 @@ func _get_input():
 	velocity.x = lerp(velocity.x, Move_Speed * move_direction, _get_h_weight())
 	if move_direction != 0:
 		$Body.scale.x = move_direction
-		
+	if Input.is_action_just_pressed("interact") and interact_option == true:
+		get_node("../LocalMap/MapAction/DialogueAction").interact()
+	
+	
+	
 func _get_h_weight():
 	return 0.2 if is_grounded else 0.1
 		

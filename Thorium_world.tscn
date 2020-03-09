@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Dialogue_System2.gd" type="Script" id=3]
+[ext_resource path="res://Grimdor.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,15 +16,18 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.4631, 31.4542 )
 
-[sub_resource type="RectangleShape2D" id=6]
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32.0328, 31.881 )
+extents = Vector2( 31.9194, 32.1253 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32.0328, 31.881 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32.0328, 31.881 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32.0328, 31.881 )
+
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32.0252, 31.7623 )
 
 [node name="World" type="Node"]
@@ -58,6 +62,9 @@ position = Vector2( 379.859, 251.107 )
 cast_to = Vector2( 0, 24 )
 collision_mask = 3
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 3 )
+
 [node name="LocalMap" type="Node" parent="."]
 
 [node name="MapAction" type="Node" parent="LocalMap"]
@@ -72,12 +79,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/MapAction/DialogueAction/Area2D"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="NPC" type="Node" parent="LocalMap/MapAction"]
 
 [node name="Grimdor" type="Node2D" parent="LocalMap/MapAction/NPC"]
 position = Vector2( 400.738, 222.361 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -101,7 +109,7 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 2 )
 
 [node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="StaticBody2D" parent="LocalMap/Walls"]
 position = Vector2( 406, 286 )
@@ -115,7 +123,7 @@ texture = ExtResource( 2 )
 
 [node name="Wall Collision3" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
 position = Vector2( -0.0769958, 3.05176e-05 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="StaticBody2D" parent="LocalMap/Walls"]
 position = Vector2( 534, 286 )
@@ -128,5 +136,11 @@ texture = ExtResource( 2 )
 
 [node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D3"]
 position = Vector2( -0.0386353, -0.111877 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 343.57
+margin_top = 47.0097
+margin_right = 621.57
+margin_bottom = 100.01
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]
