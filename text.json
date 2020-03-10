@@ -1,8 +1,14 @@
 {
-
-        "001" : {"name":"Grimdor", "expression":"Neutral", "text":"Oh, it seems the summoning worked!" }
-        
-        
-        
-        
+        "dialogue":[
+                {"name":"Grimdor", "text":"Oh, it seems the summoning worked! I am Grimdor, the Wizard of the 'Gray Tower!'"},
+                {"name":"Grimdor", "text":"You must be wondering why I summoned you here. Anyway let us go over the basics."}, 
+                {"name":"Grimdor", "text":"You're in the land of 'Thorium', subject to a battle that has lasted through the eons by the Demonic  and Angelic forces."},
+                {"name":"Grimdor", "text":"In the midst of this you'll find the Human race."},
+                {"name":"Grimdor", "text":"I want YOU to put an end to this feud. Use whatever means necessary."}    
+        ]        
 }
+
+
+
+
+

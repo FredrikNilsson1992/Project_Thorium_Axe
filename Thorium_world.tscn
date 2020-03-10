@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Player_Idle1.png" type="Texture" id=2]
 [ext_resource path="res://Dialogue_System2.gd" type="Script" id=3]
-[ext_resource path="res://Grimdor.gd" type="Script" id=4]
+[ext_resource path="res://Grimdor_Sprite.png" type="Texture" id=4]
+[ext_resource path="res://tower_block.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,56 +15,33 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31.4631, 31.4542 )
+extents = Vector2( 11.5758, 27.246 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 31.9194, 32.1253 )
+
+[sub_resource type="DynamicFont" id=7]
 
 [sub_resource type="RectangleShape2D" id=4]
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 32.0328, 31.881 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 32.0328, 31.881 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 32.0252, 31.7623 )
+extents = Vector2( 31.7579, 32.0463 )
 
 [node name="World" type="Node"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 469.398, 151.483 )
+position = Vector2( 825.495, 313.591 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Body" type="Node2D" parent="Player"]
 
 [node name="Player Sprite Temp" type="AnimatedSprite" parent="Player/Body"]
+position = Vector2( 3.68419, -8.94736 )
+scale = Vector2( 2.48026, 2.41447 )
 frames = SubResource( 1 )
 
 [node name="Body_Physics" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )
-
-[node name="Raycasts" type="Node" parent="Player"]
-
-[node name="RayCast2D" type="RayCast2D" parent="Player/Raycasts"]
-position = Vector2( 409.592, 250.992 )
-cast_to = Vector2( 0, 24 )
-collision_mask = 3
-
-[node name="RayCast2D2" type="RayCast2D" parent="Player/Raycasts"]
-position = Vector2( 430.546, 250.944 )
-exclude_parent = false
-cast_to = Vector2( 0, 24 )
-collision_mask = 3
-
-[node name="RayCast2D3" type="RayCast2D" parent="Player/Raycasts"]
-position = Vector2( 379.859, 251.107 )
-cast_to = Vector2( 0, 24 )
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 3 )
 
 [node name="LocalMap" type="Node" parent="."]
 
@@ -73,74 +51,221 @@ shape = SubResource( 3 )
 script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="LocalMap/MapAction/DialogueAction"]
-position = Vector2( 421.216, 226.692 )
+position = Vector2( 685.957, 316.363 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/MapAction/DialogueAction/Area2D"]
-shape = SubResource( 4 )
+position = Vector2( 3.15784, 2.10522 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LocalMap/MapAction/DialogueAction"]
+margin_left = 550.95
+margin_top = 205.654
+margin_right = 805.95
+margin_bottom = 274.654
+custom_fonts/mono_font = SubResource( 7 )
+tab_size = 16
 
 [node name="NPC" type="Node" parent="LocalMap/MapAction"]
 
 [node name="Grimdor" type="Node2D" parent="LocalMap/MapAction/NPC"]
-position = Vector2( 400.738, 222.361 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 492.631, 228.421 )
 
-[node name="Sprite" type="Sprite" parent="LocalMap/MapAction/NPC/Grimdor"]
+[node name="NPC_Grimdor" type="Sprite" parent="LocalMap/MapAction/NPC/Grimdor"]
 modulate = Color( 0, 0.0156863, 1, 1 )
 self_modulate = Color( 0, 0.0627451, 1, 1 )
 light_mask = 3
-texture = ExtResource( 2 )
+position = Vector2( 138.982, 79.5689 )
+scale = Vector2( 1.4421, 1.59053 )
+texture = ExtResource( 4 )
+flip_h = true
 
 [node name="Walls" type="Node" parent="LocalMap"]
 
-[node name="CollisionShape2D" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 470, 286 )
+[node name="CollisionShape2D5" type="StaticBody2D" parent="LocalMap/Walls"]
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 920.851, 152.708 )
+z_index = -2
+collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D5"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
 
-[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D"]
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D2" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 406, 286 )
+[node name="CollisionShape2D12" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 920.851, 152.708 )
+z_index = -2
+collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D12"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
 
-[node name="Wall Collision3" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
-position = Vector2( -0.0769958, 3.05176e-05 )
-shape = SubResource( 6 )
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D12"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
 
-[node name="CollisionShape2D3" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 534, 286 )
+[node name="CollisionShape2D13" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 920.851, 152.708 )
+z_index = -2
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D3"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.0256958 )
-scale = Vector2( 1, 0.992974 )
-texture = ExtResource( 2 )
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D13"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
 
-[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D3"]
-position = Vector2( -0.0386353, -0.111877 )
-shape = SubResource( 7 )
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D13"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 343.57
-margin_top = 47.0097
-margin_right = 621.57
-margin_bottom = 100.01
+[node name="CollisionShape2D14" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 858.95, 152.708 )
+z_index = -2
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D14"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D14"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 992.833, 90.4205 )
+z_index = -1
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D6"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D6"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 984.448, 216.749 )
+z_index = -1
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D7"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D7"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D8" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 920.919, 216.941 )
+z_index = -1
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D8"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D8"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D9" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 794.407, 216.873 )
+z_index = -1
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D9"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D9"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D10" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 857.69, 216.934 )
+z_index = -1
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D10"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D10"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D11" type="StaticBody2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
+position = Vector2( 920.684, 87.9902 )
+z_index = -3
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tower_Stone" type="Sprite" parent="LocalMap/Walls/CollisionShape2D11"]
+position = Vector2( -96.3156, 92.1051 )
+scale = Vector2( 0.247535, 0.258187 )
+texture = ExtResource( 5 )
+
+[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D11"]
+position = Vector2( -96.5253, 91.5788 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]
