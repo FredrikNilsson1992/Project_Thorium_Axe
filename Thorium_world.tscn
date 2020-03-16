@@ -1,46 +1,57 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Dialogue_System2.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Player_Idle1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/New Piskel-9.png.png" type="Texture" id=3]
+[ext_resource path="res://Dialogue_System2.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/pixil-frame-0(1).png" type="Texture" id=5]
+[ext_resource path="res://Sprites/dcpaqk8-6f5a9ce0-905b-41c4-8675-49c3f55f0e04.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/StoneWall2.jpeg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Object_Table.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31.4631, 31.4542 )
+extents = Vector2( 8.73071, 21.1504 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 41.0553, 18.7184 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32.0328, 31.881 )
+extents = Vector2( 10, 98.5096 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 32.0328, 31.881 )
-
-[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32.0252, 31.7623 )
 
 [node name="World" type="Node"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 469.398, 151.483 )
+position = Vector2( 444.615, 420.48 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Body" type="Node2D" parent="Player"]
 
 [node name="Player Sprite Temp" type="AnimatedSprite" parent="Player/Body"]
+position = Vector2( 0.986939, -1.42379 )
+scale = Vector2( 1.5318, 1.603 )
+z_index = 1
 frames = SubResource( 1 )
 
 [node name="Body_Physics" type="CollisionShape2D" parent="Player"]
+position = Vector2( -1.5094, 4.15088 )
 shape = SubResource( 2 )
 
 [node name="Raycasts" type="Node" parent="Player"]
+editor/display_folded = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Player/Raycasts"]
 position = Vector2( 409.592, 250.992 )
@@ -63,73 +74,282 @@ collision_mask = 3
 [node name="MapAction" type="Node" parent="LocalMap"]
 
 [node name="DialogueAction" type="Node" parent="LocalMap/MapAction"]
-script = ExtResource( 3 )
+editor/display_folded = true
+script = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="LocalMap/MapAction/DialogueAction"]
 position = Vector2( 421.216, 226.692 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/MapAction/DialogueAction/Area2D"]
+visible = false
+position = Vector2( -83.6118, 285.286 )
 shape = SubResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="LocalMap/MapAction/DialogueAction"]
-margin_left = 374.0
-margin_top = 165.0
-margin_right = 629.0
-margin_bottom = 234.0
+margin_left = 640.642
+margin_top = 130.147
+margin_right = 895.642
+margin_bottom = 199.147
 
 [node name="NPC" type="Node" parent="LocalMap/MapAction"]
 
 [node name="Grimdor" type="Node2D" parent="LocalMap/MapAction/NPC"]
-position = Vector2( 400.738, 222.361 )
+position = Vector2( 311.045, 504.626 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="LocalMap/MapAction/NPC/Grimdor"]
-modulate = Color( 0, 0.0156863, 1, 1 )
-self_modulate = Color( 0, 0.0627451, 1, 1 )
 light_mask = 3
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
+flip_h = true
 
 [node name="Walls" type="Node" parent="LocalMap"]
 
-[node name="CollisionShape2D" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 470, 286 )
+[node name="Wall 1" type="Sprite" parent="LocalMap/Walls"]
+editor/display_folded = true
+position = Vector2( 326.207, 567.502 )
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 14.6395, -75.4926 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 14.6395, -75.4926 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 14.6395, -75.4926 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 271.519, -157.679 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 188.224, -157.531 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite6" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 101.661, -157.406 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite7" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 15.7456, -157.721 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite8" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 271.571, -74.9514 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 186.357, -75.2151 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="LocalMap/Walls/Wall 1"]
+position = Vector2( 100.726, -74.968 )
+scale = Vector2( 0.338272, 0.327134 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="Area2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+position = Vector2( 287.906, 455.084 )
+z_index = 2
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
+position = Vector2( 0.520996, 4.02515 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
 
-[node name="Wall Collision2" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D"]
+[node name="Sprite2" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
+position = Vector2( 0.606201, 45.382 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
+position = Vector2( 0.541748, -37.4028 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
+position = Vector2( 0.532959, -77.4614 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
+position = Vector2( 0.54541, 76.7402 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D"]
+visible = false
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D2" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 406, 286 )
+[node name="CollisionShape2D2" type="Area2D" parent="LocalMap/Walls"]
+editor/display_folded = true
+position = Vector2( 650.114, 453.613 )
+z_index = 2
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 2 )
+position = Vector2( 0.520996, 4.02515 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
 
-[node name="Wall Collision3" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
-position = Vector2( -0.0769958, 3.05176e-05 )
+[node name="Sprite2" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
+position = Vector2( 0.606201, 45.382 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
+position = Vector2( 0.541748, -37.4028 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
+position = Vector2( 0.532959, -77.4614 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
+position = Vector2( 0.54541, 76.7402 )
+scale = Vector2( 0.0976474, 0.207091 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="Floor" type="Node" parent="LocalMap"]
+
+[node name="CollisionShape2D3" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 580.608, 564.185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D3"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
+
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D3"]
+visible = false
+position = Vector2( -0.0386353, -0.111877 )
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D3" type="StaticBody2D" parent="LocalMap/Walls"]
-position = Vector2( 534, 286 )
+[node name="CollisionShape2D8" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 613.439, 564.201 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D3"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.0256958 )
-scale = Vector2( 1, 0.992974 )
-texture = ExtResource( 2 )
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D8"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
 
-[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D3"]
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D8"]
+visible = false
 position = Vector2( -0.0386353, -0.111877 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 517.583, 564.185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D4"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
+
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D4"]
+visible = false
+position = Vector2( -0.0386353, -0.111877 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 454.558, 564.185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D5"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
+
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D5"]
+visible = false
+position = Vector2( -0.0386353, -0.111877 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 390.207, 564.185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D6"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
+
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D6"]
+visible = false
+position = Vector2( -0.0386353, -0.111877 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D7" type="StaticBody2D" parent="LocalMap/Floor"]
+editor/display_folded = true
+position = Vector2( 325.855, 564.185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LocalMap/Floor/CollisionShape2D7"]
+modulate = Color( 0.780392, 1, 0.811765, 1 )
+position = Vector2( 1.23669, -21.6391 )
+scale = Vector2( 0.253085, 0.0783494 )
+texture = ExtResource( 6 )
+
+[node name="Wall Collision" type="CollisionShape2D" parent="LocalMap/Floor/CollisionShape2D7"]
+visible = false
+position = Vector2( -0.0386353, -0.111877 )
+shape = SubResource( 5 )
+
+[node name="Objects" type="Node" parent="LocalMap"]
+
+[node name="Obj_Table" type="Sprite" parent="LocalMap/Objects"]
+position = Vector2( 433.963, 513.27 )
+scale = Vector2( 0.258899, 0.268466 )
+z_index = -1
+texture = ExtResource( 8 )
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]

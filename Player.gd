@@ -18,6 +18,8 @@ func _physics_process(delta):
 	_get_input()
 	velocity.y += gravity * delta
 	move_and_slide(velocity, UP)
+	if Input.is_action_just_pressed("interact") && interact_option == true:
+		get_node("../LocalMap/MapAction/DialogueAction").interact()
 	
 
 	is_grounded = _check_is_grounded()
@@ -41,6 +43,8 @@ func _check_is_grounded():
 		if raycast.is_colliding():
 			return true
 		return false
+
+
 
 func _on_Area2D_body_entered(body):
 	interact_option = true
