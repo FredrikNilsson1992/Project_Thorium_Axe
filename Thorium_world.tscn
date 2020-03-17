@@ -76,6 +76,7 @@ collision_mask = 3
 [node name="DialogueAction" type="Node" parent="LocalMap/MapAction"]
 editor/display_folded = true
 script = ExtResource( 4 )
+dialogue_file_path = "res://text.json"
 
 [node name="Area2D" type="Area2D" parent="LocalMap/MapAction/DialogueAction"]
 position = Vector2( 421.216, 226.692 )
@@ -161,13 +162,10 @@ position = Vector2( 100.726, -74.968 )
 scale = Vector2( 0.338272, 0.327134 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="Area2D" parent="LocalMap/Walls"]
+[node name="CollisionShape2D" type="StaticBody2D" parent="LocalMap/Walls"]
 editor/display_folded = true
 position = Vector2( 287.906, 455.084 )
 z_index = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D"]
 position = Vector2( 0.520996, 4.02515 )
@@ -198,13 +196,10 @@ texture = ExtResource( 7 )
 visible = false
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D2" type="Area2D" parent="LocalMap/Walls"]
+[node name="CollisionShape2D2" type="StaticBody2D" parent="LocalMap/Walls"]
 editor/display_folded = true
 position = Vector2( 650.114, 453.613 )
 z_index = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
 position = Vector2( 0.520996, 4.02515 )
