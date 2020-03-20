@@ -70,12 +70,14 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -1.57022, -30.1628 )
 scale = Vector2( 1.82121, 1.17058 )
+z_index = 5
 current = true
 zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 smoothing_speed = 6.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D"]
+visible = false
 margin_left = -129.317
 margin_top = 54.8633
 margin_right = 133.683
@@ -86,6 +88,7 @@ __meta__ = {
 }
 
 [node name="DialogueBox" type="Sprite" parent="Player/Camera2D"]
+visible = false
 modulate = Color( 0.172549, 0, 0, 1 )
 position = Vector2( 13.6506, 82.5755 )
 scale = Vector2( 0.279286, 0.421293 )
@@ -359,10 +362,9 @@ texture = ExtResource( 8 )
 [node name="Background" type="Node" parent="LocalMap"]
 
 [node name="Black" type="Sprite" parent="LocalMap/Background"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 71.0796, 63.3254 )
-scale = Vector2( -63.5233, 37.2609 )
+position = Vector2( 470.801, 452.604 )
+scale = Vector2( -5.89985, 3.11853 )
 z_index = -3000
 texture = ExtResource( 9 )
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]
