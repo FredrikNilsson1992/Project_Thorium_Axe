@@ -20,22 +20,25 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.73071, 21.1504 )
+extents = Vector2( 8.32874, 20.5782 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 41.0553, 18.7184 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 10, 98.5096 )
+extents = Vector2( 10, 61.2812 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 32.0252, 31.7623 )
+extents = Vector2( 46.658, 31.5802 )
 
 [node name="World" type="Node"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 444.615, 420.48 )
+position = Vector2( 518.644, 505.857 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Body" type="Node2D" parent="Player"]
 
@@ -68,6 +71,7 @@ cast_to = Vector2( 0, 24 )
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 position = Vector2( -1.57022, -30.1628 )
 scale = Vector2( 1.82121, 1.17058 )
 z_index = 5
@@ -77,7 +81,6 @@ smoothing_enabled = true
 smoothing_speed = 6.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D"]
-visible = false
 margin_left = -129.317
 margin_top = 54.8633
 margin_right = 133.683
@@ -88,7 +91,6 @@ __meta__ = {
 }
 
 [node name="DialogueBox" type="Sprite" parent="Player/Camera2D"]
-visible = false
 modulate = Color( 0.172549, 0, 0, 1 )
 position = Vector2( 13.6506, 82.5755 )
 scale = Vector2( 0.279286, 0.421293 )
@@ -127,7 +129,6 @@ flip_h = true
 [node name="Walls" type="Node" parent="LocalMap"]
 
 [node name="Wall 1" type="Sprite" parent="LocalMap/Walls"]
-visible = false
 position = Vector2( 326.207, 567.502 )
 z_index = -1
 
@@ -223,11 +224,6 @@ position = Vector2( 0.520996, 4.02515 )
 scale = Vector2( 0.0976474, 0.207091 )
 texture = ExtResource( 7 )
 
-[node name="Sprite2" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
-position = Vector2( 0.606201, 45.382 )
-scale = Vector2( 0.0976474, 0.207091 )
-texture = ExtResource( 7 )
-
 [node name="Sprite3" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
 position = Vector2( 0.541748, -37.4028 )
 scale = Vector2( 0.0976474, 0.207091 )
@@ -238,13 +234,8 @@ position = Vector2( 0.532959, -77.4614 )
 scale = Vector2( 0.0976474, 0.207091 )
 texture = ExtResource( 7 )
 
-[node name="Sprite5" type="Sprite" parent="LocalMap/Walls/CollisionShape2D2"]
-position = Vector2( 0.54541, 76.7402 )
-scale = Vector2( 0.0976474, 0.207091 )
-texture = ExtResource( 7 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalMap/Walls/CollisionShape2D2"]
-visible = false
+position = Vector2( 0.551147, -36.947 )
 shape = SubResource( 4 )
 
 [node name="Floor" type="Node" parent="LocalMap"]
@@ -267,7 +258,7 @@ position = Vector2( -0.0386353, -0.111877 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D8" type="StaticBody2D" parent="LocalMap/Floor"]
-position = Vector2( 613.439, 564.201 )
+position = Vector2( 645.366, 564.164 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -362,9 +353,16 @@ texture = ExtResource( 8 )
 [node name="Background" type="Node" parent="LocalMap"]
 
 [node name="Black" type="Sprite" parent="LocalMap/Background"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 470.801, 452.604 )
 scale = Vector2( -5.89985, 3.11853 )
 z_index = -3000
 texture = ExtResource( 9 )
+
+[node name="Node" type="Node" parent="LocalMap"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="LocalMap/Node"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="LocalMap/Node/ParallaxBackground"]
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]
