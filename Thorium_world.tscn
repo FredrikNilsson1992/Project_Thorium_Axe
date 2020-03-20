@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player_Idle1.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/Object_Table.png" type="Texture" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Box.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Background/NonParallax.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -71,7 +72,6 @@ cast_to = Vector2( 0, 24 )
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 position = Vector2( -1.57022, -30.1628 )
 scale = Vector2( 1.82121, 1.17058 )
 z_index = 5
@@ -350,19 +350,55 @@ scale = Vector2( 0.258899, 0.268466 )
 z_index = -1
 texture = ExtResource( 8 )
 
-[node name="Background" type="Node" parent="LocalMap"]
+[node name="BackGround" type="Node" parent="LocalMap"]
 
-[node name="Black" type="Sprite" parent="LocalMap/Background"]
-visible = false
+[node name="BackgroundTower" type="Node" parent="LocalMap/BackGround"]
+
+[node name="Black" type="Sprite" parent="LocalMap/BackGround/BackgroundTower"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 470.801, 452.604 )
-scale = Vector2( -5.89985, 3.11853 )
+position = Vector2( 462.249, 525.909 )
+scale = Vector2( -5.63259, 5.40933 )
 z_index = -3000
 texture = ExtResource( 9 )
 
-[node name="Node" type="Node" parent="LocalMap"]
+[node name="Black2" type="Sprite" parent="LocalMap/BackGround/BackgroundTower"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 577.328, 1203.42 )
+scale = Vector2( -61.6945, 18.9353 )
+texture = ExtResource( 9 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="LocalMap/Node"]
+[node name="Black3" type="Sprite" parent="LocalMap/BackGround/BackgroundTower"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2669.69, 1202.64 )
+scale = Vector2( -61.6945, 18.9353 )
+texture = ExtResource( 9 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="LocalMap/Node/ParallaxBackground"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="LocalMap/BackGround"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="LocalMap/BackGround/ParallaxBackground"]
+
+[node name="NonParallax" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 828.69, 299.68 )
+scale = Vector2( 4.74951, 3.38948 )
+texture = ExtResource( 11 )
+
+[node name="NonParallax4" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1208.5, 299.857 )
+scale = Vector2( 4.74951, 3.38948 )
+texture = ExtResource( 11 )
+
+[node name="NonParallax5" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1588.48, 299.953 )
+scale = Vector2( 4.74951, 3.38948 )
+texture = ExtResource( 11 )
+
+[node name="NonParallax3" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 68.8158, 299.939 )
+scale = Vector2( 4.74951, 3.38948 )
+texture = ExtResource( 11 )
+
+[node name="NonParallax2" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 448.811, 299.769 )
+scale = Vector2( 4.74951, 3.38948 )
+texture = ExtResource( 11 )
 [connection signal="body_entered" from="LocalMap/MapAction/DialogueAction/Area2D" to="Player" method="_on_Area2D_body_entered"]
