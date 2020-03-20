@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player_Idle1.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/StoneWall2.jpeg" type="Texture" id=7]
 [ext_resource path="res://Sprites/Object_Table.png" type="Texture" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Box.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -45,7 +46,7 @@ z_index = 1
 frames = SubResource( 1 )
 
 [node name="Body_Physics" type="CollisionShape2D" parent="Player"]
-position = Vector2( -1.5094, 4.15088 )
+position = Vector2( -0.862336, 3.82736 )
 shape = SubResource( 2 )
 
 [node name="Raycasts" type="Node" parent="Player"]
@@ -67,18 +68,29 @@ cast_to = Vector2( 0, 24 )
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -5.32483, 4.46603 )
+position = Vector2( -1.57022, -30.1628 )
 scale = Vector2( 1.82121, 1.17058 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 smoothing_speed = 6.0
 
-[node name="DialogueBox" type="Sprite" parent="Player"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 17.1475, 168.903 )
-scale = Vector2( 1.19, 0.273751 )
-texture = ExtResource( 6 )
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D"]
+margin_left = -129.317
+margin_top = 54.8633
+margin_right = 133.683
+margin_bottom = 124.863
+tab_size = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox" type="Sprite" parent="Player/Camera2D"]
+modulate = Color( 0.172549, 0, 0, 1 )
+position = Vector2( 13.6506, 82.5755 )
+scale = Vector2( 0.279286, 0.421293 )
+z_index = -1
+texture = ExtResource( 10 )
 
 [node name="LocalMap" type="Node" parent="."]
 
@@ -96,15 +108,6 @@ visible = false
 position = Vector2( -83.6118, 285.286 )
 shape = SubResource( 3 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="LocalMap/MapAction/DialogueAction"]
-margin_left = 315.0
-margin_top = 559.0
-margin_right = 606.0
-margin_bottom = 620.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="NPC" type="Node" parent="LocalMap/MapAction"]
 
 [node name="Grimdor" type="Node2D" parent="LocalMap/MapAction/NPC"]
@@ -121,6 +124,7 @@ flip_h = true
 [node name="Walls" type="Node" parent="LocalMap"]
 
 [node name="Wall 1" type="Sprite" parent="LocalMap/Walls"]
+visible = false
 position = Vector2( 326.207, 567.502 )
 z_index = -1
 

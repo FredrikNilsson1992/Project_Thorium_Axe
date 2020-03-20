@@ -11,7 +11,8 @@ var jump_velocity = -720
 var is_grounded
 var interact = true
 var interact_option = false
-
+var talking = 0
+onready var camerabox = get_node ("Camera2D/DialogueBox")
 onready var raycasts = $Raycasts
 
 func _physics_process(delta):
@@ -21,6 +22,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact") && interact_option == true:
 		get_node("../LocalMap/MapAction/DialogueAction").interact()
 	
+	if talking == 1:
+		camerabox.show()
+		
+	elif talking == 0:
+		camerabox.hide()
+		
 
 	is_grounded = _check_is_grounded()
 
