@@ -2,21 +2,23 @@ extends Node
 
 
 class_name DialogueAction
-
+var talking = 0
 var dia_index = 1
 onready var player_movement = get_node("../../../Player")
 onready var text_print = get_node("RichTextLabel")
-
+onready var dialogue_box = get_node("../../../Player/DialogueBox")
 export (String, FILE, "*.json") var dialogue_file_path : String
 
 func interact() -> void:
 	var dialogue : Dictionary = load_dialogue(dialogue_file_path)
 	var dialogue_list = dialogue["dialogue"]
 	
+		
 	if dialogue_list.size() > 1:
 		text_print.visible == false
 		player_movement.Move_Speed = 0
 		text_print.show()
+		talking = 1
 		
 		if dia_index != dialogue_list.size() - 1:
 			text_print.text = dialogue_list[dia_index]["text"]
@@ -35,7 +37,9 @@ func interact() -> void:
 	else:
 		text_print.hide()
 		player_movement.Move_Speed = 5 * 65
-
+		talking = 0
+		
+	
 	#yield(Node.play_dialogue(dialogue), "completed")
 	#emit_signal("finished")
 	
