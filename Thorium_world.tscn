@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player_Idle1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/pixil-frame-0(1).png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Tiles/castle_tileset_part1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Tiles/castle_tileset_part2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Objects/Sliced/obj_0005_Layer-6.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Tiles/castle_tileset_part3.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Box.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Background/NonParallax.png" type="Texture" id=11]
@@ -1833,6 +1834,10 @@ position = Vector2( 379.859, 251.107 )
 cast_to = Vector2( 0, 24 )
 collision_mask = 3
 
+[node name="obj_0005_Layer-6" type="Sprite" parent="Player/Raycasts"]
+position = Vector2( -815.178, 522.214 )
+texture = ExtResource( 8 )
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
 position = Vector2( -1.57022, -30.1628 )
@@ -1844,10 +1849,10 @@ smoothing_enabled = true
 smoothing_speed = 6.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D"]
-margin_left = -178.0
-margin_top = 53.0
-margin_right = 199.0
-margin_bottom = 195.0
+margin_left = -133.0
+margin_top = 46.0
+margin_right = 127.0
+margin_bottom = 118.0
 tab_size = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1855,8 +1860,8 @@ __meta__ = {
 
 [node name="DialogueBox" type="Sprite" parent="Player/Camera2D"]
 modulate = Color( 0.172549, 0, 0, 1 )
-position = Vector2( 10.3921, 124.07 )
-scale = Vector2( 0.325652, 0.825702 )
+position = Vector2( 0.700207, 79.2889 )
+scale = Vector2( 0.226648, 0.429726 )
 z_index = -1
 texture = ExtResource( 10 )
 
@@ -1896,7 +1901,6 @@ flip_h = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="LocalMap/BackGround"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="LocalMap/BackGround/ParallaxBackground"]
-visible = false
 
 [node name="NonParallax" type="Sprite" parent="LocalMap/BackGround/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 828.69, 299.68 )
