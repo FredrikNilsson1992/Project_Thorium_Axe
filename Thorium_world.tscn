@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player_Idle1.png" type="Texture" id=2]
@@ -645,9 +645,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 9/shapes = [  ]
 9/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=18]
-points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
-
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 16, 16, 32, 0, 32, 32, 0, 32 )
 
@@ -656,6 +653,12 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 16, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
 [sub_resource type="TileSet" id=17]
 0/name = "castle_tileset_part1.png 0"
@@ -700,27 +703,6 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
-3/name = "castle_tileset_part1.png 3"
-3/texture = ExtResource( 6 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 96, 0, 32, 32 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 18 )
-3/shape_one_way = false
-3/shape_one_way_margin = 1.0
-3/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 18 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-3/z_index = 0
 4/name = "castle_tileset_part1.png 4"
 4/texture = ExtResource( 6 )
 4/tex_offset = Vector2( 0, 0 )
@@ -1421,20 +1403,6 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 56/shape_one_way_margin = 0.0
 56/shapes = [  ]
 56/z_index = 0
-57/name = "castle_tileset_part1.png 57"
-57/texture = ExtResource( 6 )
-57/tex_offset = Vector2( 0, 0 )
-57/modulate = Color( 1, 1, 1, 1 )
-57/region = Rect2( 96, 0, 16, 32 )
-57/tile_mode = 0
-57/occluder_offset = Vector2( 0, 0 )
-57/navigation_offset = Vector2( 0, 0 )
-57/shape_offset = Vector2( 0, 0 )
-57/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-57/shape_one_way = false
-57/shape_one_way_margin = 0.0
-57/shapes = [  ]
-57/z_index = 0
 58/name = "castle_tileset_part3.png 58"
 58/texture = ExtResource( 9 )
 58/tex_offset = Vector2( 0, 0 )
@@ -1620,9 +1588,16 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 70/navigation_offset = Vector2( 0, 0 )
 70/shape_offset = Vector2( 0, 0 )
 70/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+70/shape = SubResource( 25 )
 70/shape_one_way = false
-70/shape_one_way_margin = 0.0
-70/shapes = [  ]
+70/shape_one_way_margin = 1.0
+70/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 70/z_index = 0
 71/name = "castle_tileset_part3.png 71"
 71/texture = ExtResource( 9 )
@@ -1666,6 +1641,27 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 73/shape_one_way_margin = 0.0
 73/shapes = [  ]
 73/z_index = 0
+74/name = "2"
+74/texture = ExtResource( 6 )
+74/tex_offset = Vector2( 0, 0 )
+74/modulate = Color( 1, 1, 1, 1 )
+74/region = Rect2( 96, 0, 16, 32 )
+74/tile_mode = 0
+74/occluder_offset = Vector2( 0, 0 )
+74/navigation_offset = Vector2( 0, 0 )
+74/shape_offset = Vector2( 0, 0 )
+74/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+74/shape = SubResource( 24 )
+74/shape_one_way = false
+74/shape_one_way_margin = 1.0
+74/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+74/z_index = 0
 
 [sub_resource type="TileSet" id=22]
 0/name = "castle_tileset_part1.png 0"
@@ -1966,7 +1962,7 @@ tile_data = PoolIntArray( 1703945, 6, 0, 1835023, 7, 0, 1900559, 7, 0, 1900625, 
 tile_set = SubResource( 17 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 851993, 9, 0, 851997, 8, 0, 983061, 9, 0, 983065, 7, 0, 983066, 51, 0, 983071, 6, 0, 983073, 8, 0, 1114129, 9, 0, 1114133, 7, 0, 1114147, 6, 0, 1114149, 8, 0, 1245201, 57, 0, 1245202, 7, 0, 1245206, 63, 0, 1245212, 63, 0, 1245218, 63, 0, 1245222, 6, 0, 1245224, 57, 0, 1310737, 57, 0, 1310760, 57, 0, 1376273, 57, 0, 1376296, 57, 0, 1441809, 57, 0, 1441832, 57, 0, 1507345, 57, 0, 1507368, 57, 0, 1572881, 57, 0, 1572904, 57, 0, 1638417, 57, 0, 1638440, 57, 0, 1703953, 57, 0, 1703954, 536870964, 0, 1703975, 52, 0, 1703976, 57, 0, 1769489, 57, 0, 1769512, 57, 0, 1835025, 57, 0, 1900561, 57, 0, 1900565, 65, 0, 1966097, 57, 0, 2031633, 57, 0, 2031637, 67, 0, 2162705, 69, 0, 2162707, 69, 0, 2162709, 69, 0, 2162711, 69, 0, 2162713, 69, 0, 2162715, 69, 0, 2162717, 69, 0, 2162719, 69, 0, 2162721, 69, 0, 2162723, 69, 0, 2162725, 69, 0, 2162727, 69, 0 )
+tile_data = PoolIntArray( 851993, 9, 0, 851997, 8, 0, 983061, 9, 0, 983065, 7, 0, 983066, 51, 0, 983071, 6, 0, 983073, 8, 0, 1114129, 9, 0, 1114133, 7, 0, 1114147, 6, 0, 1114149, 8, 0, 1245201, 74, 0, 1245202, 7, 0, 1245206, 63, 0, 1245212, 63, 0, 1245218, 63, 0, 1245222, 6, 0, 1245224, 74, 0, 1310760, 57, 0, 1376273, 74, 0, 1376296, 74, 0, 1441832, 57, 0, 1507345, 74, 0, 1507368, 74, 0, 1572904, 57, 0, 1638417, 74, 0, 1638440, 74, 0, 1703954, 536870964, 0, 1703975, 52, 0, 1703976, 57, 0, 1769489, 74, 0, 1769512, 74, 0, 1900561, 74, 0, 1900565, 65, 0, 2031633, 74, 0, 2031637, 67, 0, 2031668, 23, 0, 2162705, 69, 0, 2162707, 69, 0, 2162709, 69, 0, 2162711, 69, 0, 2162713, 69, 0, 2162715, 69, 0, 2162717, 69, 0, 2162719, 69, 0, 2162721, 69, 0, 2162723, 69, 0, 2162725, 69, 0, 2162727, 69, 0, 2293871, 24, 0 )
 
 [node name="Background Walls" type="TileMap" parent="LocalMap/World Tiles/BuildingTiles"]
 z_index = -1
