@@ -5,9 +5,9 @@ const UP = Vector2(0, -1)
 const SLOPE_STOP = 64
 
 var velocity = Vector2()
-var Move_Speed = 5 * 65
-var gravity = 1200
-var jump_velocity = -720
+var Move_Speed = 5 * 64
+var gravity = 256
+var jump_velocity = -128
 var is_grounded
 var interact = true
 var interact_option = false
@@ -29,10 +29,10 @@ func _physics_process(delta):
 		camerabox.hide()
 		
 
-	is_grounded = _check_is_grounded()
+	is_grounded = is_on_floor()
 
 func _input(event):
-	if event.is_action_pressed("jump") && is_grounded:
+	if event.is_action_pressed("jump") and is_grounded:
 		velocity.y = jump_velocity
 
 func _get_input():
@@ -47,7 +47,7 @@ func _get_h_weight():
 		
 func _check_is_grounded():
 	for raycast in raycasts.get_children():
-		if raycast.is_colliding():
+		if raycast.is_grounded:
 			return true
 		return false
 
