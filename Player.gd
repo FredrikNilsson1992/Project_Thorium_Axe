@@ -6,7 +6,7 @@ const SLOPE_STOP = 64
 
 var velocity = Vector2()
 var Move_Speed = 5 * 64
-var gravity = 256
+var gravity = 5 * 64
 var jump_velocity = -128
 var is_grounded
 var interact = true

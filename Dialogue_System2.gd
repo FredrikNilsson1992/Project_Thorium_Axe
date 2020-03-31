@@ -13,7 +13,6 @@ func interact() -> void:
 	var dialogue : Dictionary = load_dialogue(dialogue_file_path)
 	var dialogue_list = dialogue["dialogue"]
 	
-		
 	if dialogue_list.size() > 1:
 		text_print.visible == false
 		player_movement.Move_Speed = 0
@@ -38,14 +37,12 @@ func interact() -> void:
 	else:
 		
 		text_print.hide()
-		player_movement.Move_Speed = 5 * 65
+		player_movement.Move_Speed = 5 * 64
 		
 	
 	#yield(Node.play_dialogue(dialogue), "completed")
 	#emit_signal("finished")
 	
-
-
 func load_dialogue(file_path) -> Dictionary:
 	var file = File.new()
 	
