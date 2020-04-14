@@ -2033,6 +2033,18 @@ scale = Vector2( 0.226648, 0.429726 )
 z_index = -1
 texture = ExtResource( 10 )
 
+[node name="Option" type="RichTextLabel" parent="Player"]
+margin_left = -60.0
+margin_top = -57.0
+margin_right = 62.0
+margin_bottom = -23.0
+meta_underlined = false
+tab_size = 6
+text = "Press X to Interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LocalMap" type="Node" parent="."]
 
 [node name="MapAction" type="Node" parent="LocalMap"]

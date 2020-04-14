@@ -14,7 +14,7 @@ var interact_option = false
 var talking = 0
 onready var camerabox = get_node ("Camera2D/DialogueBox")
 onready var raycasts = $Raycasts
-
+onready var Option = get_node ("RichTextLabel")
 func _physics_process(delta):
 	_get_input()
 	velocity.y += gravity * delta
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		
 	elif talking == 0:
 		camerabox.hide()
-		
+	
 
 	is_grounded = is_on_floor()
 
@@ -55,7 +55,10 @@ func _check_is_grounded():
 
 func _on_Area2D_body_entered(body):
 	interact_option = true
+	if interact_option == true:
+		Option.show
 	
 func __on_Area2D_body_exit(body):
 	interact_option = false
-	
+	if interact_option != true:
+		Option.hide
