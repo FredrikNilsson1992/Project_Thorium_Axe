@@ -27,11 +27,11 @@ func _input_is_action_pressed():
 	if Input.is_action_pressed("ui_right"):
 		motion.x =min(motion.x+ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
-		$Sprite.play("Run")
+		#$Sprite.play("Run")
 	elif Input.is_action_pressed("ui_left"):
 		motion.x =max(motion.x+ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = true
-		$Sprite.play("Run")
+		#$Sprite.play("Run")
 	else:
 		$Sprite.play("Idle")
 		friction = true

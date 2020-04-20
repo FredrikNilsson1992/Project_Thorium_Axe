@@ -16,7 +16,6 @@ func interact() -> void:
 		
 	if dialogue_list.size() > 1:
 		text_print.visible == false
-		player_movement.Move_Speed = 0
 		text_print.show()
 		get_node("../../../Player/").talking = 1
 		
@@ -27,18 +26,15 @@ func interact() -> void:
 			get_node("../../../Player/").talking = 0
 			dia_index = 1
 			text_print.hide()
-			player_movement.Move_Speed = 5 * 65
 	
 	elif dialogue_list.size() == 1:
 		text_print.visible == false
-		player_movement.Move_Speed = 0
 		text_print.show()
 		text_print.text = dialogue_list[1]["text"]
 		
 	else:
 		
 		text_print.hide()
-		player_movement.Move_Speed = 5 * 65
 		
 	
 	#yield(Node.play_dialogue(dialogue), "completed")
