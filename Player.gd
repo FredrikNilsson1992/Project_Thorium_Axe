@@ -60,3 +60,4 @@ func __on_Area2D_body_exit(body):
 	interact_option = false
 	if interact_option != true:
 		Option.hide
+
